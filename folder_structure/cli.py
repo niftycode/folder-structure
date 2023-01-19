@@ -23,8 +23,7 @@ from folder_structure import tree, info
 def create_parser() -> argparse.ArgumentParser:
     """
     Create a command-line parser
-    Returns:
-        parser
+    Returns: The created parser
     """
     parser = argparse.ArgumentParser(
         prog="folder-structure",
