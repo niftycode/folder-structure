@@ -1,0 +1,21 @@
+{
+    "include": [
+      "folder_structure"
+    ],
+    
+    "exclude": [
+      "**/__pycache__",
+      "tests",
+      "docs"
+    ],
+  
+    "defineConstant": {
+      "DEBUG": true
+    },
+
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false,
+  
+    "pythonVersion": "3.11",
+    "pythonPlatform": "Darwin"
+}
