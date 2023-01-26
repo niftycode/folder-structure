@@ -15,11 +15,11 @@ import pathlib
 import logging
 
 
-PIPE = "│"
-ELBOW = "└──"
-TEE = "├──"
-PIPE_PREFIX = "│   "
-SPACE_PREFIX = "    "
+PIPE = '│'
+ELBOW = '└──'
+TEE = '├──'
+PIPE_PREFIX = '│   '
+SPACE_PREFIX = '    '
 
 
 logging.basicConfig(level=logging.INFO)
@@ -30,6 +30,7 @@ class FolderTree:
     """
     This class generates the folder structure.
     """
+
     def __init__(self, root_dir):
         self._generator = _TreeGenerator(root_dir)
 
@@ -45,6 +46,7 @@ class _TreeGenerator:
     The top level (_tree.head) is read first,
     then the subfolders (_tree.body) follow.
     """
+
     def __init__(self, root_dir):
         """
         Init method
@@ -52,7 +54,7 @@ class _TreeGenerator:
             root_dir: The root directory specified by the user
         """
         self._root_dir = pathlib.Path(root_dir)
-        logger.debug(f"root_dir: {self._root_dir}")
+        logger.debug(f'root_dir: {self._root_dir}')
         self._tree = []
 
     def build_tree(self):
@@ -70,10 +72,10 @@ class _TreeGenerator:
         """
         Add the root directory and a PIPE to the _tree list.
         """
-        self._tree.append(f"{self._root_dir}{os.sep}")
+        self._tree.append(f'{self._root_dir}{os.sep}')
         self._tree.append(PIPE)
 
-    def _tree_body(self, folder, prefix=""):
+    def _tree_body(self, folder, prefix=''):
         """
         Iterate through the folder structure with iterdir().
         Invoke _add_directory() if it is a directory,
@@ -88,11 +90,15 @@ class _TreeGenerator:
         for index, entry in enumerate(entries):
             connector = ELBOW if index == entries_count - 1 else TEE
             if entry.is_dir():
-                self._add_directory(entry, index, entries_count, prefix, connector)
+                self._add_directory(
+                    entry, index, entries_count, prefix, connector
+                )
             else:
                 self._add_file(entry, prefix, connector)
 
-    def _add_directory(self, directory, index, entries_count, prefix, connector):
+    def _add_directory(
+        self, directory, index, entries_count, prefix, connector
+    ):
         """
         Add every directory to the _tree list.
         Args:
@@ -102,7 +108,7 @@ class _TreeGenerator:
             prefix: The prefix to use (for example a SPACE_PREFIX)
             connector: A PIPE or an ELBOW
         """
-        self._tree.append(f"{prefix}{connector} {directory.name}{os.sep}")
+        self._tree.append(f'{prefix}{connector} {directory.name}{os.sep}')
         if index != entries_count - 1:
             prefix += PIPE_PREFIX
         else:
@@ -118,4 +124,4 @@ class _TreeGenerator:
             prefix: The prefix to use (for example a SPACE_PREFIX)
             connector: A PIPE or an ELBOW
         """
-        self._tree.append(f"{prefix}{connector} {file.name}")
+        self._tree.append(f'{prefix}{connector} {file.name}')

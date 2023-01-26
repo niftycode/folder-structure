@@ -36,11 +36,11 @@ email: [py@bodo-schoenfeld.de](mailto:py@bodo-schoenfeld.de)
 
 - Work on the master branch for smaller patches or create a **separate branch for new features**.
 - Make changes, `git add` and then commit. You can link to the issue number in the commit message (optional).
-- (Optional) Run `flake8`, `pytest` and `black`.
+- (Optional) Run `flake8`, `pytest` and `blue`.
 - (Optional) If you're updating the documentation, make sure you update `docs/index.rst` and `README.md` simultaneously.
 - Use the GitHub website to create a Pull Request (PR) and wait for the maintainers to review it.
 
 ## Code Guidelines
 
-1. This project uses the [PEP8](https://www.python.org/dev/peps/pep-0008/) code style. Your should follow the same before you create a pull request. You can use `black` to format your code quickly.
+1. This project uses the [PEP8](https://www.python.org/dev/peps/pep-0008/) code style. Your should follow the same before you create a pull request. You can use `blue` to format your code quickly.
 2. Every function in your code should have a docstring that follows [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html).

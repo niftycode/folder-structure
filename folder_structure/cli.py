@@ -26,23 +26,23 @@ def create_parser() -> argparse.ArgumentParser:
     Returns: The created parser
     """
     parser = argparse.ArgumentParser(
-        prog="folder-structure",
-        description="This is folder-structure, a directory tree generator",
+        prog='folder-structure',
+        description='This is folder-structure, a directory tree generator',
     )
     parser.add_argument(
-        "-v",
-        "--version",
-        action="store_true",
-        help="Show version and license",
+        '-v',
+        '--version',
+        action='store_true',
+        help='Show version and license',
     )
 
     parser.add_argument(
-        "-d",
-        "--directory",
-        metavar="ROOT_DIR",
-        default="",
-        action="store",
-        help="Generate a full directory tree starting at ROOT_DIR",
+        '-d',
+        '--directory',
+        metavar='ROOT_DIR',
+        default='',
+        action='store',
+        help='Generate a full directory tree starting at ROOT_DIR',
     )
     return parser
 
@@ -53,7 +53,7 @@ def evaluate_arguments(args: Namespace):
     Args:
         args: given arguments
     """
-    if args.directory != "":
+    if args.directory != '':
         root_dir = pathlib.Path(args.directory)
         if not root_dir.is_dir():
             print("The specified root directory doesn't exist")
@@ -75,5 +75,5 @@ def main():
     evaluate_arguments(args)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
